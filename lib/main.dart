@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heyflutter_challenges/components/helper/colors.dart';
+import 'package:heyflutter_challenges/screens/login.dart';
 import 'package:heyflutter_challenges/screens/personal_profile.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Details',
       theme: ThemeData.dark(),
-      home: const PersonalProfile(),
+      debugShowCheckedModeBanner: false,
+      home: const Login(),
     );
   }
 }

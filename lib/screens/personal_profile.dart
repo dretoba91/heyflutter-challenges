@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:heyflutter_challenges/components/helper/colors.dart';
 
 class PersonalProfile extends StatefulWidget {
-  const PersonalProfile({super.key});
+  final String name;
+  final String email;
+  const PersonalProfile({super.key, required this.name, required this.email});
 
   @override
   State<PersonalProfile> createState() => _PersonalProfileState();
@@ -17,6 +19,17 @@ class _PersonalProfileState extends State<PersonalProfile> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.redAccent,
+        leading: Column(
+          children: [
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 30.0,
+            ),
+          ],
+        ),
         title: Column(
           children: [
             Text("Profile"),
@@ -32,7 +45,7 @@ class _PersonalProfileState extends State<PersonalProfile> {
               height: 5,
             ),
             Text(
-              "Mr Tanko",
+              widget.name,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -43,7 +56,7 @@ class _PersonalProfileState extends State<PersonalProfile> {
         centerTitle: true,
         toolbarHeight: 200,
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
@@ -56,7 +69,7 @@ class _PersonalProfileState extends State<PersonalProfile> {
                     color: AppColors.redAccent,
                   ),
                   title: Text(
-                    "tanko@gmail.com",
+                    widget.email,
                   ),
                 ),
               ),
