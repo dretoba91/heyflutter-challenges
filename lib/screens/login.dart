@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:heyflutter_challenges/components/helper/colors.dart';
 import 'package:heyflutter_challenges/screens/personal_profile.dart';
 
@@ -89,15 +90,19 @@ class _LoginState extends State<Login> {
                   minimumSize: Size.fromHeight(50.0),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PersonalProfile(
-                        name: nameController.text,
-                        email: emailController.text,
-                      ),
-                    ),
-                  );
+                  context.goNamed('personal_details', extra: {
+                    "name": nameController.text,
+                    "email": emailController.text,
+                  });
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => PersonalProfile(
+                  //       name: nameController.text,
+                  //       email: emailController.text,
+                  //     ),
+                  //   ),
+                  // );
                 },
                 child: Text(
                   'Login',
